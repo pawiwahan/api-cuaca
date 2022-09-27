@@ -4,6 +4,7 @@
   "description": "api cuaca",
   "main": "index.js",
   "scripts": {
+    "collect:data": "node ./resource/resource.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
