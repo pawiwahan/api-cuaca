@@ -1,1 +1,14 @@
+name: Netlify Builds
 
+on:
+  schedule:
+    - cron: "00 22 */3 * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: call netlify build hook
+        run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
