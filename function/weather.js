@@ -20,7 +20,8 @@ router.get("/", async (req, res) => {
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(" ");
 
-  const link = "https://bmkg-weather-api.netlify.app/data/weather.json";
+  // const link = "https://bmkg-weather-api.netlify.app/data/weather.json";
+  const link = "https://api-cuaca.netlify.app/data/weather.json/";
   let weatherData = await request({ url: link, json: true });
   weatherData = weatherData.filter((element) => element.kota.includes(city));
 
