@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "api cuaca",
   "main": "index.js",
+  "private":"true",
   "scripts": {
     "collect:data": "node ./resource/resource.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +12,7 @@
     "api",
     "cuaca"
   ],
-  "author": "GEDE JUNI",
+  "author": "GEDE JUNIADA",
   "license": "ISC",
   "dependencies": {
     "async": "^3.2.4",
