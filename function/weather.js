@@ -3,9 +3,18 @@ const express = require("express");
 const serverless = require("serverless-http");
 const bodyParser = require("body-parser");
 const request = require("request-promise");
+const cors = require('cors');
 
 const app = express();
 const router = express.Router();
+//mengijinkan semua origin
+// app.use(cors());
+app.use(cors({
+  origin: 'http://127.0.0.1:5173',
+  methods: ['GET'],
+  allowedHeaders: ['Content-Type']
+}));
+
 
 router.get("/", async (req, res) => {
   const rawcity = req.query.kota;
