@@ -7,8 +7,7 @@ const cors = require('cors');
 
 const app = express();
 const router = express.Router();
-//mengijinkan semua origin
-// app.use(cors());
+app.use(cors()); //izinkan akses dari domain yang berbeda
 
 
 
@@ -37,11 +36,12 @@ router.get("/", async (req, res) => {
   return res.json(weatherData[0]);
 });
 
-app.use(cors({
-  origin: 'http://127.0.0.1:5173',
-  methods: ['GET'],
-  allowedHeaders: ['application/json']
-}));
+app.get('/data/weather.json', function(req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET');
+  res.sendFile(__dirname + '/data/weather.json');
+});
+
 app.use(bodyParser.json());
 app.use("/.netlify/functions/weather", router); // path must route to lambda
 
